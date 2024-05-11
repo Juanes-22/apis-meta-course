@@ -1,0 +1,73 @@
+# grading criteria
+
+1.	The admin can assign users to the manager group
+GET http://localhost:8000/api/groups/manager/users
+
+2.	You can access the manager group with an admin token
+GET http://localhost:8000/api/groups/manager/users
+
+3.	The admin can add menu items 
+POST http://localhost:8000/api/groups/manager/users
+
+4.	The admin can add categories
+POST http://localhost:8000/api/categories
+{"title": "Appetizers"}
+
+5.	Managers can log in 
+POST http://localhost:8000/api/token/login
+{"username": "admin", "password": "1234"}
+
+6.	Managers can update the item of the day
+
+7.	Managers can assign users to the delivery crew
+POST http://localhost:8000/api/groups/delivery-crew/users
+{"username": "juan"}
+
+8.	Managers can assign orders to the delivery crew
+PATCH http://localhost:8000/api/orders/{orderId}
+{"delivery_crew_id": 4}
+
+9.	The delivery crew can access orders assigned to them
+GET http://localhost:8000/api/orders
+(use delivery crew token)
+
+10.	The delivery crew can update an order as delivered
+PATCH http://localhost:8000/api/orders/{orderId}
+{"status": true}
+(use delivery crew token)
+
+11.	Customers can register
+POST http://localhost:8000/api/users/
+{"username": "Sara", "email": "sara@email.com", "password": "Littlelemon!22"}
+
+12.	Customers can log in using their username and password and get access tokens
+POST http://localhost:8000/api/token/login
+{"username": "juan", "password": "Littlelemon!22"}
+
+13.	Customers can browse all categories 
+GET http://localhost:8000/api/categories
+
+14.	Customers can browse all the menu items at once
+GET http://localhost:8000/api/menu-items
+
+15.	Customers can browse menu items by category
+GET http://localhost:8000/api/menu-items?category__title=Dessert
+
+16.	Customers can paginate menu items
+GET http://localhost:8000/api/menu-items?page=2
+
+17.	Customers can sort menu items by price
+GET http://localhost:8000/api/menu-items?ordering=price
+
+18.	Customers can add menu items to the cart
+POST http://localhost:8000/api/cart/menu-items
+{"menuitem_id": 2, "quantity": 4}
+
+19.	Customers can access previously added items in the cart
+GET http://localhost:8000/api/cart/menu-items
+
+20.	Customers can place orders
+POST http://localhost:8000/api/orders
+
+21.	Customers can browse their own orders
+GET http://localhost:8000/api/orders

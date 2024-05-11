@@ -1,0 +1,23 @@
+admin
+role: manager
+username: admin
+email: admin@littlelemon.com
+password: 1234
+
+juan
+role: customer
+username: juan
+email: juan@email.com
+password: Littlelemon!22
+
+maria
+role: customer
+username: maria
+email: maria@email.com
+password: Littlelemon!22
+
+bob
+role: delivery crew
+username: bob
+email: bob@email.com
+password: Littlelemon!22
